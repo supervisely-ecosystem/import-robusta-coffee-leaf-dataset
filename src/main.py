@@ -46,9 +46,9 @@ def create_ann(im_name):
     return sly.Annotation(img_size=img_shape, labels=labels)
 
 
-def extract_zip(archive_path):
-    if zipfile.is_zipfile(archive_path):
-        with zipfile.ZipFile(archive_path, 'r') as archive:
+def extract_zip():
+    if zipfile.is_zipfile(g.archive_path):
+        with zipfile.ZipFile(g.archive_path, 'r') as archive:
             archive.extractall(g.work_dir_path)
     else:
         g.logger.warn('Archive cannot be unpacked {}'.format(g.arch_name))
